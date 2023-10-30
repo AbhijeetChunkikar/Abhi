@@ -1,0 +1,106 @@
+body{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 100vh;
+	background-color: #E5E7F8;
+	overflow: hidden;
+	font-family: sans-serif;
+
+}
+
+#click{
+	display: none;
+}
+.click{
+	position: absolute;
+	background-color: #e9c46a;
+	width: 170px;
+	height: 40px;
+	top: -40px;
+	left: -10px;
+	transform-origin: bottom left;
+	transition: 0.3s;
+	cursor: pointer;
+}
+.click::before{
+	position: absolute;
+	content: '';
+	width: 25px;
+	height: 40px;
+	background-color: #e76f51;
+	left: 72px;
+}
+.click::after{
+	content: '';
+	position: absolute;
+	width: 5px;
+	height: 0;
+	border-bottom: 30px solid #e76f51;
+	border-top: 30px solid #e76f51;
+	border-left: 0px solid transparent;
+	border-right: 30px solid transparent;
+	transform: rotate(-90deg);
+	left: 65px;
+	top: -47px;
+}
+#click:checked+.click{
+	transform: rotate(-110deg) scale(0.85);
+}
+#click:checked~.wishes{
+	transform: translateY(-120px);
+}
+
+.card{
+	width: 640px;
+	height: 400px;
+	position: absolute;
+	margin: auto;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	-webkit-perspective: 1200px;
+	perspective: 1200px;
+	transition: 1s;
+}
+.card:hover{
+	transform: rotate(-5deg);
+}
+.card:hover .outside{
+	transform: rotateY(-130deg);
+}
+.outside,
+.inside{
+   border: 1px solid white;
+   height: 100%;
+   width: 50%;
+   position: absolute;
+   left: 30%;
+   top: 40%;
+}
+
+.outside{
+   -webkit-transform-style: preserve-3d;
+   transform-style: preserve-3d ;
+   z-index: 1;
+   transform-origin: left;
+   transition: 2s;
+}
+
+
+.back{
+	transform: rotateY(180deg);
+	background: linear-gradient(to left, #e0e0e0,#ffffff 30%);
+}
+
+img{
+	width: 320px;
+	height: 400px;
+	position: absolute;
+	margin: auto;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+}
